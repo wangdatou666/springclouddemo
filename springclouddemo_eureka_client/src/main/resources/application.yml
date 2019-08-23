@@ -1,0 +1,18 @@
+server:
+  port: 8763
+
+spring:
+  application:
+    name: service-hi
+
+eureka:
+  instance:
+    #每一秒想注册中心发送一次心跳检测
+    lease-renewal-interval-in-seconds: 1
+    #如果两秒钟没有发送心跳检测,则证明该服务已死亡
+    lease-expiration-duration-in-seconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
