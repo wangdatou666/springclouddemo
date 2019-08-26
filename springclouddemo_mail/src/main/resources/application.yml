@@ -1,9 +1,22 @@
 server:
-  port: 8763
+  port: 8770
 
 spring:
   application:
-    name: service-hi
+    name: service-mail
+  mail:
+    host: smtp.qq.com
+    username: 821319695@qq.com
+      #QQ邮箱的授权码
+    password: nlmosrgfjtrqbcbh
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
 eureka:
   instance:
