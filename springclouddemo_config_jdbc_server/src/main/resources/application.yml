@@ -1,0 +1,29 @@
+spring:
+  profiles:
+     active: jdbc
+  application:
+     name: config-jdbc-server
+  datasource:
+     url: jdbc:mysql://127.0.0.1:3306/config-jdbc?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2B8
+     username: root
+     password: root
+     driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+     config:
+       label: master
+       server:
+         jdbc: true
+server:
+  port: 8889
+
+eureka:
+  instance:
+    #每一秒想注册中心发送一次心跳检测
+    lease-renewal-interval-in-seconds: 1
+    #如果两秒钟没有发送心跳检测,则证明该服务已死亡
+    lease-expiration-duration-in-seconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring.cloud.config.server.jdbc.sql: SELECT key1, value1 from config_properties where APPLICATION=? and PROFILE=? and LABEL=?

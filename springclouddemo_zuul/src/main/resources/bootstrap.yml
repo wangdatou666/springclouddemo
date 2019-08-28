@@ -7,4 +7,4 @@ spring:
             profile: dev
             discovery:
                 enabled: true
-                serviceId: config-server
+                serviceId: config-jdbc-server

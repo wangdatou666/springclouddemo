@@ -8,24 +8,29 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.wangdatou</groupId>
-	<artifactId>springclouddemo_config_server</artifactId>
+	<artifactId>springclouddemo_config_jdbc_server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springclouddemo_config_server</name>
+	<name>springclouddemo_config_jdbc_server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
