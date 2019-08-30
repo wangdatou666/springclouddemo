@@ -1,0 +1,25 @@
+
+server:
+  port: 8771
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/springclouddemo?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    type: com.alibaba.druid.pool.DruidDataSource
+  application:
+    name: serivce-user
+mybatis:
+  type-aliases-package: com.wangdatou.springclouddemo_service_user.entity
+  mapper-locations: classpath:mapper/*Mapper.xml
+
+eureka:
+  instance:
+    #每一秒想注册中心发送一次心跳检测
+    lease-renewal-interval-in-seconds: 1
+    #如果两秒钟没有发送心跳检测,则证明该服务已死亡
+    lease-expiration-duration-in-seconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
