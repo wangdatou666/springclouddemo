@@ -1,14 +1,13 @@
 package com.wangdatou.springclouddemo_register.service;
 
-import com.wangdatou.springclouddemo_register.entity.User;
+import com.wangdatou.springclouddemo_common.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 @Service
 public class RegisterService {
@@ -17,9 +16,16 @@ public class RegisterService {
     private SchedualServiceUser schedualServiceUser;
     @Autowired
     private SchedualServiceMail schedualServiceMail;
+    @Autowired
+    private SchedualServiceMessage schedualServiceMessage;
 
-    public String register(User user){
-        String resultStr = schedualServiceUser.addUser(user);
+    public String register(User user,String code){
+        String resultStr;
+        if (!user.getVerificationCode().equals(code)){
+            resultStr = "验证码错误";
+            return resultStr;
+        }
+        resultStr = schedualServiceUser.addUser(user);
         if ("添加成功".equals(resultStr)){
             HashMap<String, String> mailMap = new HashMap<>();
             mailMap.put("mailTo", user.getEmail());
@@ -35,4 +41,17 @@ public class RegisterService {
         return resultStr;
     }
 
+    public String getVerificationCode(Map<String, String> requestMap) {
+        String code = requestMap.get("code");
+        requestMap.put("templateParam","{\"code\":\""+code+"\"}");
+        schedualServiceMessage.sendMessage(requestMap);
+        return "验证码已发送";
+    }
+
+    @Cacheable("code")
+    public String getRundomCode(String username) {
+        String verifyCode = String
+                .valueOf(new Random().nextInt(899999) + 100000);
+        return verifyCode;
+    }
 }

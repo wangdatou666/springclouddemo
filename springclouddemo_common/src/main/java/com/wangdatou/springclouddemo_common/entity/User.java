@@ -1,4 +1,4 @@
-package com.wangdatou.springclouddemo_service_user.entity;
+package com.wangdatou.springclouddemo_common.entity;
 
 import lombok.Data;
 
@@ -9,5 +9,6 @@ public class User {
     private String password;
     private String telephone;
     private String email;
+    private String verificationCode;
 
 }

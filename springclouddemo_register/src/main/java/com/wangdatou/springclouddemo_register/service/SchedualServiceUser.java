@@ -1,6 +1,6 @@
 package com.wangdatou.springclouddemo_register.service;
 
-import com.wangdatou.springclouddemo_register.entity.User;
+import com.wangdatou.springclouddemo_common.entity.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

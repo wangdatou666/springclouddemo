@@ -11,7 +11,7 @@ spring:
   application:
     name: serivce-user
 mybatis:
-  type-aliases-package: com.wangdatou.springclouddemo_service_user.entity
+  type-aliases-package: com.wangdatou.springclouddemo_common.entity
   mapper-locations: classpath:mapper/*Mapper.xml
 
 eureka:

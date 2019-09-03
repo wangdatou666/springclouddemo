@@ -1,7 +1,7 @@
 package com.wangdatou.springclouddemo_service_user.service;
 
+import com.wangdatou.springclouddemo_common.entity.User;
 import com.wangdatou.springclouddemo_service_user.dao.UserDao;
-import com.wangdatou.springclouddemo_service_user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
