@@ -14,8 +14,8 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 
 aliyun:
-  accessKeyId: LTAI4Ff8M2Lik11DKTcbLg3K
-  accessKeySecret: qQXAPfhrrKEFqBiBOtDFKcccTaoU74
+  accessKeyId: ***************
+  accessKeySecret: ****************
   regionId: default
   domain: dysmsapi.aliyuncs.com
   version: 2017-05-25
